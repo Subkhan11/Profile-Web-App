@@ -1,800 +1,396 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="dark">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Subkhan Maulana | Operations Assistant & Virtual Support</title>
-  <meta name="description" content="Portfolio of Subkhan Maulana - Experienced Operations Assistant specializing in executive admin, calendar coordination, document control, research, reporting, and AI workflows.">
+/* ==========================================================================
+   SUBKHAN MAULANA PORTFOLIO - STYLESHEET
+   Identity: Primary Navy & Light Off-White (#F5F6F8) Alternating Surfaces
+   Optimized Mobile-First Responsive Architecture (320px - Desktop)
+   ========================================================================== */
+
+:root {
+  --bg-navy-dark: #0B1220;
+  --bg-navy-card: rgba(17, 28, 46, 0.85);
+  --bg-light-surface: #F5F6F8;
+  --bg-light-card: #FFFFFF;
+  --accent-cyan: #43D9FF;
+  --accent-cyan-glow: rgba(67, 217, 255, 0.25);
+  --accent-blue-brand: #0284C7;
+  --text-main: #F8FAFC;
+  --text-muted: #94A3B8;
+  --text-dark-main: #0F172A;
+  --text-dark-muted: #475569;
+  --border-color: rgba(148, 163, 184, 0.18);
+  --border-light-color: rgba(15, 23, 42, 0.12);
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --shadow-main: 0 12px 32px 0 rgba(0, 0, 0, 0.37);
+  --shadow-light: 0 8px 24px 0 rgba(149, 157, 165, 0.1);
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+}
+
+[data-theme="light"] {
+  --bg-navy-dark: #F8FAFC;
+  --bg-navy-card: #FFFFFF;
+  --bg-light-surface: #F1F5F9;
+  --bg-light-card: #FFFFFF;
+  --text-main: #0F172A;
+  --text-muted: #475569;
+  --border-color: rgba(15, 23, 42, 0.12);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-family: 'Inter', sans-serif; background-color: var(--bg-navy-dark); color: var(--text-main); line-height: 1.6; }
+body { overflow-x: hidden; width: 100%; }
+a { color: var(--accent-cyan); text-decoration: none; transition: color var(--transition-fast); }
+a:hover { text-decoration: underline; }
+.container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 0.5rem; }
+.text-center { text-align: center; }
+.accent-text { color: var(--accent-cyan); }
+.muted-text { color: var(--text-muted); }
+.max-w-4xl { max-width: 850px; margin: 0 auto; }
+.section-padding { padding: 4rem 0; }
+
+.section-navy { background-color: var(--bg-navy-dark); color: var(--text-main); }
+.section-light { background-color: var(--bg-light-surface); color: var(--text-dark-main); }
+.section-light .section-title { color: var(--text-dark-main); }
+.section-light .section-description { color: var(--text-dark-muted); }
+.section-light .section-subtitle { color: var(--accent-blue-brand); }
+.section-header { margin-bottom: 2.5rem; }
+.section-subtitle { font-size: 0.8rem; font-weight: 700; letter-spacing: 2px; color: var(--accent-cyan); text-transform: uppercase; }
+.section-title { font-family: 'Outfit', sans-serif; font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 800; margin-top: 0.5rem; }
+.section-description { color: var(--text-muted); max-width: 650px; margin: 0.5rem auto 0; font-size: 0.95rem; }
+.section-divider { width: 60px; height: 3px; background-color: var(--accent-cyan); margin: 1rem auto 0; border-radius: 2px; }
+.section-light .section-divider { background-color: var(--accent-blue-brand); }
+
+.glass-card { background: var(--bg-navy-card); backdrop-filter: blur(12px); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; box-shadow: var(--shadow-main); }
+.surface-card { background: var(--bg-light-card); border: 1px solid var(--border-light-color); border-radius: var(--radius-md); padding: 1.5rem; box-shadow: var(--shadow-light); color: var(--text-dark-main); }
+.surface-card h4, .surface-card h3 { color: var(--text-dark-main); }
+.surface-card p { color: var(--text-dark-muted); font-size: 0.9rem; }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; font-weight: 600; border-radius: var(--radius-sm); padding: 0.75rem 1.5rem; cursor: pointer; border: 1px solid transparent; transition: all var(--transition-fast); text-decoration: none; font-size: 0.95rem; min-height: 44px; }
+.btn-sm { padding: 0.4rem 0.9rem; font-size: 0.85rem; min-height: 36px; }
+.btn-lg { padding: 0.85rem 1.8rem; font-size: 1rem; }
+.btn-block { width: 100%; }
+.btn-primary { background-color: var(--accent-cyan); color: #0B1220; box-shadow: 0 0 15px var(--accent-cyan-glow); }
+.btn-primary:hover { background-color: #72E3FF; text-decoration: none; }
+.section-light .btn-primary { background-color: var(--accent-blue-brand); color: #FFFFFF; }
+.btn-secondary { background: transparent; border-color: var(--border-color); color: var(--text-main); }
+.btn-icon { background: transparent; border: none; color: var(--text-main); cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0.5rem; border-radius: 50%; width: 40px; height: 40px; }
+
+/* NAVBAR */
+.navbar { position: sticky; top: 0; z-index: 1000; background: rgba(11, 18, 32, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-color); padding: 0.8rem 0; }
+.nav-container { display: flex; align-items: center; justify-content: space-between; width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 0.5rem; }
+.nav-brand { display: flex; align-items: center; gap: 0.75rem; font-weight: 800; font-size: 1.05rem; color: var(--text-main); text-decoration: none; }
+.brand-initials { background: var(--accent-cyan); color: #0B1220; padding: 0.2rem 0.5rem; border-radius: var(--radius-sm); font-size: 0.9rem; }
+.nav-links { display: flex; gap: 1.5rem; }
+.nav-link { color: var(--text-muted); font-size: 0.95rem; font-weight: 500; display: inline-flex; align-items: center; min-height: 40px; }
+.nav-link.active, .nav-link:hover { color: var(--accent-cyan); text-decoration: none; }
+.nav-actions { display: flex; align-items: center; gap: 0.75rem; }
+.hamburger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; width: 40px; height: 40px; align-items: center; justify-content: center; }
+.hamburger span { width: 24px; height: 2px; background-color: var(--text-main); transition: var(--transition-fast); }
+[data-theme="dark"] .sun-icon { display: block; }
+[data-theme="dark"] .moon-icon { display: none; }
+[data-theme="light"] .sun-icon { display: none; }
+[data-theme="light"] .moon-icon { display: block; }
+
+/* HERO */
+.hero-section { padding: 4rem 0 3rem; }
+.hero-container { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 2.5rem; align-items: center; }
+.eyebrow-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(67, 217, 255, 0.1); border: 1px solid var(--accent-cyan); color: var(--accent-cyan); padding: 0.35rem 0.85rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; margin-bottom: 1rem; max-width: 100%; word-break: break-word; }
+.pulse-dot { width: 8px; height: 8px; flex-shrink: 0; background-color: var(--accent-cyan); border-radius: 50%; animation: pulse 2s infinite; }
+@keyframes pulse { 0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(67, 217, 255, 0.7); } 70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(67, 217, 255, 0); } 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(67, 217, 255, 0); } }
+.hero-title { font-family: 'Outfit', sans-serif; font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 800; line-height: 1.2; margin-bottom: 1rem; }
+.hero-subtitle { color: var(--text-muted); font-size: 1rem; margin-bottom: 2rem; }
+.hero-cta-group { display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
+.hero-highlights { display: flex; gap: 2rem; border-top: 1px solid var(--border-color); padding-top: 1.5rem; flex-wrap: wrap; }
+.highlight-num { font-size: 1.6rem; font-weight: 800; color: var(--accent-cyan); display: block; }
+.highlight-label { font-size: 0.8rem; color: var(--text-muted); }
+.hero-visual { position: relative; width: 100%; max-width: 380px; margin: 0 auto; }
+.photo-wrapper { position: relative; width: 100%; }
+.photo-frame { position: relative; border-radius: var(--radius-lg); overflow: hidden; border: 2px solid var(--accent-cyan); box-shadow: 0 0 35px var(--accent-cyan-glow); background: #000; display: flex; align-items: center; justify-content: center; }
+.profile-img { width: 100%; max-height: 400px; object-fit: contain; display: block; }
+.float-card { position: absolute; padding: 0.5rem 0.8rem; display: flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; font-weight: 600; z-index: 2; white-space: nowrap; }
+.card-top-left { top: 15px; left: -10px; }
+.card-bottom-right { bottom: 15px; right: -10px; }
+.hero-contact-bar { margin-top: 1.2rem; padding: 1rem; display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.85rem; }
+.contact-pill { display: flex; align-items: center; gap: 0.6rem; color: var(--text-muted); word-break: break-all; }
+
+/* ABOUT */
+.about-text-content { font-size: 1rem; line-height: 1.8; color: var(--text-dark-main); margin-bottom: 2rem; }
+.about-text-content p { margin-bottom: 1rem; }
+.about-strengths-row { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+.strength-chip { display: flex; align-items: center; gap: 0.75rem; padding: 0.8rem 1.2rem; font-weight: 600; font-size: 0.9rem; }
+
+/* SERVICES */
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+.service-card h3 { font-size: 1.15rem; margin: 0.8rem 0; }
+.service-card p { font-size: 0.9rem; color: var(--text-muted); }
+.service-icon { background: rgba(67, 217, 255, 0.1); width: 48px; height: 48px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+
+/* SCOPED CSS: TOOLS GRID & TILES */
+.tools-grid-clean { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
+  gap: 1.2rem; 
+}
+.tool-tile { 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: flex-start; 
+  padding: 1.4rem 1rem; 
+  text-align: center;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+.tool-tile:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-main);
+}
+.tool-logo-img { 
+  width: 44px; 
+  height: 44px; 
+  object-fit: contain; 
+  margin-bottom: 0.8rem; 
+}
+.fallback-tile-box { 
+  width: 44px; 
+  height: 44px; 
+  background: var(--accent-blue-brand); 
+  color: #FFFFFF; 
+  border-radius: var(--radius-sm); 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  font-weight: 800; 
+  font-size: 1.1rem; 
+  margin-bottom: 0.8rem; 
+}
+.tool-label { 
+  font-size: 0.95rem; 
+  font-weight: 700; 
+  color: var(--text-dark-main); 
+  margin-bottom: 0.3rem; 
+}
+.tool-desc { 
+  font-size: 0.82rem; 
+  color: var(--text-dark-muted); 
+  line-height: 1.4; 
+}
+
+/* ==========================================================================
+   UPGRADED SELECTED PROJECTS & WORK SAMPLES (SCOPED NAMESPACE: .project-showcase)
+   ========================================================================== */
+.project-showcase__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.project-card {
+  border-radius: var(--radius-lg);
+  padding: 1.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* 7 Alternating Themes */
+.project-card--theme-1 { background-color: #101B2D; color: #FFFFFF; }
+.project-card--theme-1 .project-card__badge { color: #4F8CFF; }
+.project-card--theme-1 .project-card__panel { background: #18263E; border-color: rgba(255,255,255,0.08); }
+
+.project-card--theme-2 { background-color: #F6F7F9; color: #1E293B; }
+.project-card--theme-2 .project-card__badge { color: #0F9D91; }
+.project-card--theme-2 .project-card__title { color: #0F172A; }
+.project-card--theme-2 .project-card__desc { color: #475569; }
+.project-card--theme-2 .project-card__panel { background: #FFFFFF; border-color: #E2E8F0; color: #1E293B; }
+.project-card--theme-2 .project-metrics { background: #EDF2F7; border-color: #CBD5E1; color: #1E293B; }
+.project-card--theme-2 .project-metrics h4 { color: #0F9D91; }
+
+.project-card--theme-3 { background-color: #FFFFFF; color: #0F172A; border: 1px solid #CBD5E1; }
+.project-card--theme-3 .project-card__badge { color: #16845B; }
+.project-card--theme-3 .project-card__title { color: #0F172A; }
+.project-card--theme-3 .project-card__desc { color: #475569; }
+.project-card--theme-3 .project-card__panel { background: #F0FDF4; border-color: #BBF7D0; color: #065F46; }
+.project-card--theme-3 .project-metrics { background: #F8FAFC; border-color: #E2E8F0; color: #0F172A; }
+.project-card--theme-3 .project-metrics h4 { color: #16845B; }
+
+.project-card--theme-4 { background-color: #F6F4FB; color: #1F2937; border: 1px solid #E9D5FF; }
+.project-card--theme-4 .project-card__badge { color: #7357C5; }
+.project-card--theme-4 .project-card__title { color: #1F2937; }
+.project-card--theme-4 .project-card__desc { color: #4B5563; }
+.project-card--theme-4 .project-card__panel { background: #FFFFFF; border-color: #DDD6FE; color: #1F2937; }
+.project-card--theme-4 .project-metrics { background: #F3E8FF; border-color: #D8B4FE; color: #1F2937; }
+.project-card--theme-4 .project-metrics h4 { color: #7357C5; }
+
+.project-card--theme-5 { background-color: #FBF8F2; color: #292524; border: 1px solid #FDE68A; }
+.project-card--theme-5 .project-card__badge { color: #C77A24; }
+.project-card--theme-5 .project-card__title { color: #1C1917; }
+.project-card--theme-5 .project-card__desc { color: #57534E; }
+.project-card--theme-5 .project-card__panel { background: #FFFFFF; border-color: #FEF3C7; color: #292524; }
+.project-card--theme-5 .project-metrics { background: #FEFCE8; border-color: #FEF08A; color: #292524; }
+.project-card--theme-5 .project-metrics h4 { color: #C77A24; }
+
+.project-card--theme-6 { background-color: #FFFFFF; color: #0F172A; border: 1px solid #E2E8F0; }
+.project-card--theme-6 .project-card__badge { color: #64748B; }
+.project-card--theme-6 .project-card__title { color: #0F172A; }
+.project-card--theme-6 .project-card__desc { color: #475569; }
+.project-card--theme-6 .project-card__panel { background: #F8FAFC; border-color: #E2E8F0; color: #0F172A; }
+.project-card--theme-6 .project-metrics { background: #F1F5F9; border-color: #CBD5E1; color: #0F172A; }
+.project-card--theme-6 .project-metrics h4 { color: #475569; }
+
+.project-card--theme-7 { background-color: #18232F; color: #F8FAFC; }
+.project-card--theme-7 .project-card__badge { color: #35B8C8; }
+.project-card--theme-7 .project-card__panel { background: #22303F; border-color: rgba(255,255,255,0.08); }
+
+.project-card__header { margin-bottom: 1.5rem; }
+.project-card__badge { font-size: 0.7rem; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; }
+.project-card__title { font-family: 'Outfit', sans-serif; font-size: clamp(1.2rem, 3vw, 1.6rem); font-weight: 700; margin: 0.4rem 0 0.5rem; }
+.project-card__desc { font-size: 0.9rem; opacity: 0.85; }
+
+.project-card__compare { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-bottom: 1.5rem; }
+.project-card__panel { border-radius: var(--radius-sm); overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.1); display: flex; flex-direction: column; }
+.project-card__panel-title { padding: 0.6rem 0.9rem; font-weight: 700; font-size: 0.8rem; display: flex; align-items: center; gap: 0.4rem; }
+.project-card__panel-body { padding: 1rem; flex: 1; font-size: 0.82rem; word-break: break-word; }
+
+/* UI Elements inside Panels */
+.ps-inbox-row { display: flex; justify-content: space-between; align-items: center; padding: 0.4rem 0.6rem; background: rgba(0,0,0,0.2); border-radius: 4px; margin-bottom: 0.4rem; font-size: 0.78rem; gap: 0.5rem; flex-wrap: wrap; }
+.ps-inbox-row.unread { border-left: 3px solid #EF4444; }
+.ps-inbox-row.border-blue { border-left: 3px solid #4F8CFF; }
+.ps-kpi-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.3rem; margin-bottom: 0.8rem; text-align: center; }
+.ps-kpi { background: rgba(0,0,0,0.25); padding: 0.35rem 0.2rem; border-radius: 4px; font-size: 0.7rem; }
+.ps-kpi b { display: block; font-size: 0.95rem; color: #4F8CFF; }
+.ps-tag { font-size: 0.62rem; padding: 0.1rem 0.3rem; border-radius: 3px; font-weight: 700; white-space: nowrap; }
+.ps-tag.p1 { background: rgba(239, 68, 68, 0.2); color: #EF4444; }
+.ps-tag.p2 { background: rgba(59, 130, 246, 0.2); color: #3B82F6; }
+.ps-badge { font-size: 0.68rem; padding: 0.1rem 0.3rem; border-radius: 3px; font-weight: 700; white-space: nowrap; }
+.ps-badge.green { background: rgba(16, 185, 129, 0.2); color: #10B981; }
+.ps-badge.yellow { background: rgba(245, 158, 11, 0.2); color: #F59E0B; }
+
+.ps-template-box { background: rgba(0,0,0,0.25); padding: 0.8rem; border-left: 3px solid #4F8CFF; margin-top: 0.8rem; border-radius: 4px; }
+.copy-fb { font-size: 0.72rem; color: #10B981; margin-left: 0.4rem; display: inline-block; margin-top: 0.3rem; }
+
+.ps-list { padding-left: 1.1rem; line-height: 1.5; opacity: 0.85; }
+.ps-note { font-size: 0.78rem; opacity: 0.7; margin-top: 0.6rem; font-style: italic; }
+.ps-raw { font-family: monospace; font-size: 0.78rem; background: rgba(0,0,0,0.25); padding: 0.8rem; border-radius: 4px; color: #EF4444; word-break: break-all; }
+
+.ps-itin-card { background: rgba(0,0,0,0.15); padding: 0.5rem; border-radius: 4px; margin-bottom: 0.4rem; border-left: 3px solid #0F9D91; font-size: 0.78rem; }
+.itin-time { font-weight: 700; color: #0F9D91; }
+
+.table-responsive-box { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 0.5rem; }
+.data-preview-table { width: 100%; border-collapse: collapse; font-size: 0.78rem; min-width: 260px; }
+.data-preview-table th, .data-preview-table td { padding: 0.4rem 0.5rem; border: 1px solid rgba(0,0,0,0.1); text-align: left; }
+.data-preview-table th { background: rgba(0,0,0,0.05); }
+
+.kanban-preview-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.4rem; }
+.kanban-mini-col { background: rgba(0,0,0,0.15); padding: 0.4rem; border-radius: 4px; }
+.col-head { font-size: 0.7rem; font-weight: 700; margin-bottom: 0.3rem; }
+.kanban-card-item { background: rgba(255,255,255,0.05); padding: 0.3rem; border-radius: 3px; font-size: 0.7rem; }
+
+.sop-doc-preview { background: rgba(0,0,0,0.15); padding: 0.7rem; border-radius: 4px; font-size: 0.78rem; }
+
+/* Efficiency Analysis Box */
+.project-metrics {
+  background: rgba(0, 0, 0, 0.25);
+  padding: 1rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.project-metrics h4 {
+  font-size: 0.9rem;
+  margin-bottom: 0.6rem;
+  color: var(--accent-cyan);
+}
+.project-metrics__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+  min-width: 300px;
+}
+.project-metrics__table th, .project-metrics__table td {
+  padding: 0.5rem;
+  border: 1px solid rgba(255,255,255,0.1);
+  text-align: left;
+}
+.project-metrics__table th { background: rgba(0,0,0,0.3); }
+.project-metrics__note {
+  font-size: 0.72rem;
+  opacity: 0.7;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+/* TRUST SECTION */
+.trust-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+.trust-card h4 { margin: 0.8rem 0 0.4rem; font-size: 1.05rem; }
+
+/* FAQ */
+.faq-accordion { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 0.8rem; }
+.faq-question { width: 100%; padding: 1rem; background: transparent; border: none; color: var(--text-main); font-size: 1rem; font-weight: 600; display: flex; justify-content: space-between; align-items: center; cursor: pointer; text-align: left; gap: 1rem; min-height: 48px; }
+.faq-answer { padding: 0 1rem 1rem; display: none; color: var(--text-muted); font-size: 0.9rem; border-top: 1px solid var(--border-color); }
+.faq-item.open .faq-answer { display: block; }
+.faq-item.open .faq-toggle { transform: rotate(45deg); }
+
+/* CONTACT */
+.contact-wrapper { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 2rem; }
+.contact-info-cards { display: flex; flex-direction: column; gap: 1rem; }
+.contact-card h4 { font-size: 0.95rem; margin: 0.4rem 0 0.2rem; }
+.contact-form { display: flex; flex-direction: column; gap: 1rem; }
+.form-group { display: flex; flex-direction: column; gap: 0.3rem; }
+.form-group label { font-size: 0.85rem; color: var(--text-dark-muted); }
+.form-group input, .form-group textarea, .form-select { padding: 0.7rem 0.9rem; border-radius: var(--radius-sm); background: var(--bg-light-card); border: 1px solid var(--border-light-color); color: var(--text-dark-main); font-size: 0.95rem; width: 100%; }
+.form-feedback { font-size: 0.85rem; padding: 0.5rem; border-radius: var(--radius-sm); display: none; }
+.form-feedback.success { background: rgba(16, 185, 129, 0.2); color: #10B981; display: block; }
+
+/* FLOATING BUTTON & FOOTER */
+.floating-home-btn { position: fixed; bottom: 20px; right: 20px; width: 44px; height: 44px; background: var(--accent-cyan); color: #0B1220; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.4); z-index: 999; opacity: 0; visibility: hidden; transition: all var(--transition-fast); }
+.floating-home-btn.visible { opacity: 1; visibility: visible; }
+.footer { border-top: 1px solid var(--border-color); padding: 2rem 0; font-size: 0.85rem; color: var(--text-muted); }
+
+/* ==========================================================================
+   MOBILE-FIRST RESPONSIVE BREAKPOINTS OPTIMIZATION (320px, 360px, 375px, 390px, 430px, 768px, 1024px)
+   ========================================================================== */
+
+@media (max-width: 992px) {
+  .hero-container, .project-card__compare, .contact-wrapper { grid-template-columns: 1fr; }
+  .hero-visual { order: -1; margin-bottom: 1.5rem; }
+}
+
+@media (max-width: 768px) {
+  .nav-links { position: fixed; top: 65px; left: 0; right: 0; background: var(--bg-navy-dark); flex-direction: column; padding: 1.5rem 2rem; border-bottom: 1px solid var(--border-color); transform: translateY(-150%); transition: transform var(--transition-normal); box-shadow: var(--shadow-main); gap: 0.5rem; z-index: 999; }
+  .nav-links.mobile-open { transform: translateY(0); }
+  .hamburger { display: flex; }
+  .section-padding { padding: 3rem 0; }
+  .project-card { padding: 1.2rem; }
+  .hero-highlights { gap: 1rem; }
+  .kanban-preview-grid { grid-template-columns: 1fr; }
+  .tools-grid-clean { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+}
+
+@media (max-width: 576px) {
+  .container { width: 92%; padding: 0 0.25rem; }
+  .hero-cta-group { flex-direction: column; width: 100%; }
+  .hero-cta-group .btn { width: 100%; }
+  .about-strengths-row { flex-direction: column; }
+  .strength-chip { width: 100%; justify-content: center; }
+  .ps-kpi-row { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
   
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+  /* Float cards positioning optimization */
+  .float-card { font-size: 0.72rem; padding: 0.4rem 0.6rem; }
+  .card-top-left { top: 10px; left: 0px; }
+  .card-bottom-right { bottom: 10px; right: 0px; }
+}
 
-  <!-- Sticky Navigation -->
-  <header class="navbar" id="navbar">
-    <div class="nav-container">
-      <a href="#home" class="nav-brand">
-        <span class="brand-initials">SM</span>
-        <span class="brand-name">Subkhan Maulana</span>
-      </a>
+@media (max-width: 390px) {
+  .hero-title { font-size: 1.7rem; }
+  .section-title { font-size: 1.35rem; }
+  .project-card { padding: 1rem; }
+  .project-card__compare { gap: 0.8rem; }
+  .project-card__panel-body { padding: 0.75rem; }
+  .tools-grid-clean { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+}
 
-      <nav class="nav-links" id="nav-links">
-        <a href="#home" class="nav-link active">Home</a>
-        <a href="#about" class="nav-link">About</a>
-        <a href="#services" class="nav-link">Services</a>
-        <a href="#tools" class="nav-link">Tools</a>
-        <a href="#portfolio" class="nav-link">Work Samples</a>
-        <a href="#faq" class="nav-link">FAQ</a>
-        <a href="#contact" class="nav-link">Contact</a>
-      </nav>
-
-      <div class="nav-actions">
-        <button id="theme-toggle" class="btn-icon" aria-label="Toggle light/dark theme" title="Toggle Theme">
-          <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-          <svg class="moon-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-        </button>
-
-        <a href="#contact" class="btn btn-sm btn-primary">Let's Work Together</a>
-
-        <button class="hamburger" id="hamburger" aria-label="Toggle mobile menu">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <!-- HERO SECTION -->
-    <section id="home" class="hero-section section-navy">
-      <div class="container hero-container">
-        <div class="hero-content">
-          <div class="eyebrow-badge">
-            <span class="pulse-dot"></span>
-            OPERATIONS & ADMINISTRATIVE SUPPORT
-          </div>
-          <h1 class="hero-title">Your Operations, Organized.<br><span class="accent-text">Your Time, Reclaimed.</span></h1>
-          <p class="hero-subtitle">
-            I help busy professionals and growing teams manage their daily operations, organize information, coordinate tasks, and build smoother workflows with reliable administrative support and practical AI-powered tools.
-          </p>
-          
-          <div class="hero-cta-group">
-            <a href="#portfolio" class="btn btn-primary btn-lg">Explore Work Samples</a>
-            <a href="#contact" class="btn btn-secondary btn-lg">Let's Work Together</a>
-          </div>
-
-          <div class="hero-highlights">
-            <div class="highlight-item">
-              <span class="highlight-num">9+</span>
-              <span class="highlight-label">Years Operations Experience</span>
-            </div>
-            <div class="highlight-item">
-              <span class="highlight-num">100%</span>
-              <span class="highlight-label">Remote Ready Support</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-visual">
-          <div class="photo-wrapper">
-            <div class="photo-frame">
-              <img 
-                src="https://i.ibb.co.com/HpYM5D8g/b-OL2n-Do9-Tjhw6dq-Vn9t-DJ-h-CZBk-ULH.webp" 
-                alt="Subkhan Maulana - Operations Assistant"
-                class="profile-img"
-              >
-            </div>
-            <div class="glass-card float-card card-top-left">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#43D9FF" stroke-width="2"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
-              <span>Tasks Organized</span>
-            </div>
-            <div class="glass-card float-card card-bottom-right">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#43D9FF" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-              <span>Inbox Workflow</span>
-            </div>
-          </div>
-
-          <div class="hero-contact-bar glass-card">
-            <div class="contact-pill">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-              <a href="https://wa.me/6282118055905" target="_blank" rel="noopener">+6282118055905</a>
-            </div>
-            <div class="contact-pill">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-              <a href="mailto:sangsubkhan@gmail.com">sangsubkhan@gmail.com</a>
-            </div>
-            <div class="contact-pill">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-              <a href="https://linkedin.com/in/subkhan-maulana" target="_blank" rel="noopener">linkedin.com/in/subkhan-maulana</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT ME SECTION -->
-    <section id="about" class="section-padding section-light">
-      <div class="container text-center max-w-4xl">
-        <span class="section-subtitle">BACKGROUND & PHILOSOPHY</span>
-        <h2 class="section-title">Reliable Operations Support, Built on Real-World Experience</h2>
-        <div class="section-divider"></div>
-
-        <div class="about-text-content">
-          <p>
-            I am an Operations Assistant with 9 years of professional experience helping teams stay organized, coordinate daily activities, manage information, and keep business operations running smoothly.
-          </p>
-          <p>
-            I combine reliable administrative support, executive calendar coordination, and meticulous document control with modern productivity tools and practical AI-assisted workflows to help distributed teams work smarter.
-          </p>
-        </div>
-
-        <div class="about-strengths-row">
-          <div class="strength-chip surface-card">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#0284C7" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-            <span>Operational Reliability</span>
-          </div>
-          <div class="strength-chip surface-card">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#0284C7" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
-            <span>Organized & Detail-Oriented</span>
-          </div>
-          <div class="strength-chip surface-card">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#0284C7" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-            <span>AI-Enhanced Productivity</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROFESSIONAL SERVICES -->
-    <section id="services" class="section-padding section-navy">
-      <div class="container">
-        <div class="section-header text-center">
-          <span class="section-subtitle">WHAT I DO</span>
-          <h2 class="section-title">Core Administrative & Operational Support</h2>
-          <p class="section-description">Dedicated support tailored for business owners, executives, and distributed teams.</p>
-          <div class="section-divider"></div>
-        </div>
-
-        <div class="services-grid">
-          <div class="service-card glass-card">
-            <div class="service-icon">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#43D9FF" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-            </div>
-            <h3>Email & Inbox Management</h3>
-            <p>Priority inbox triage, message categorization, draft reply formulation, and daily summary digests.</p>
-          </div>
-
-          <div class="service-card glass-card">
-            <div class="service-icon">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#43D9FF" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-            </div>
-            <h3>Calendar & Travel Coordination</h3>
-            <p>Multi-timezone meeting scheduling, conflict prevention, agenda prep, and multi-day travel itineraries.</p>
-          </div>
-
-          <div class="service-card glass-card">
-            <div class="service-icon">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#43D9FF" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
-            </div>
-            <h3>Data Entry, Spreadsheets & Reporting</h3>
-            <p>Data validation, structured tracking spreadsheets, clean report summaries, and CSV data processing.</p>
-          </div>
-
-          <div class="service-card glass-card">
-            <div class="service-icon">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#43D9FF" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-            </div>
-            <h3>Web Research & Competitor Audits</h3>
-            <p>Gathering supplier data, benchmarking competitors, evaluating pricing, and synthesizing executive briefs.</p>
-          </div>
-
-          <div class="service-card glass-card">
-            <div class="service-icon">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#43D9FF" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
-            </div>
-            <h3>Task & Project Management</h3>
-            <p>Managing task boards (Trello, Asana, Notion, ClickUp), assigning due dates, and tracking action items.</p>
-          </div>
-
-          <div class="service-card glass-card">
-            <div class="service-icon">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#43D9FF" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
-            </div>
-            <h3>SOP & Operations Documentation</h3>
-            <p>Documenting step-by-step operating procedures, process checklists, and standardized file taxonomy.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SOFTWARE ECOSYSTEM / TOOLS -->
-    <section id="tools" class="section-padding section-light">
-      <div class="container">
-        <div class="section-header text-center">
-          <span class="section-subtitle">TECHNOLOGY TOOLKIT</span>
-          <h2 class="section-title">Software & Automation Tools</h2>
-          <p class="section-description">Modern productivity software and automation platforms used to manage operational workflows.</p>
-          <div class="section-divider"></div>
-        </div>
-
-        <div class="tools-grid-clean" id="tools-grid">
-          <!-- Populated by JS -->
-        </div>
-      </div>
-    </section>
-
-    <!-- SELECTED PROJECTS & WORK SAMPLES (UPGRADED 7 SAAS DASHBOARDS) -->
-    <section id="portfolio" class="section-padding section-navy project-showcase">
-      <div class="container">
-        <div class="section-header text-center">
-          <span class="section-subtitle">INTERACTIVE WORK SAMPLES</span>
-          <h2 class="section-title">Selected Projects & Work Samples</h2>
-          <p class="section-description">Detailed SaaS-grade case studies featuring polished before/after dashboards and transparent illustrative efficiency metrics.</p>
-          <div class="section-divider"></div>
-        </div>
-
-        <div class="project-showcase__grid">
-
-          <!-- PROJECT 1: EXECUTIVE INBOX & EMAIL MANAGEMENT -->
-          <article class="project-card project-card--theme-1">
-            <div class="project-card__header">
-              <span class="project-card__badge">PROJECT 1 • ADMINISTRATION</span>
-              <h3 class="project-card__title">Executive Inbox & Email Management</h3>
-              <p class="project-card__desc">Transforming an unorganized, high-volume executive inbox into a prioritized, categorized system with automated reply templates.</p>
-            </div>
-            <div class="project-card__compare">
-              <!-- BEFORE -->
-              <div class="project-card__panel project-card__panel--before">
-                <div class="project-card__panel-title"><span class="icon red">✕</span> BEFORE: Unorganized Inbox</div>
-                <div class="project-card__panel-body">
-                  <div class="ps-inbox-row unread"><span class="sender">Acme Client</span><span class="subject">URGENT: Contract question!!</span><span class="time">09:12 AM</span></div>
-                  <div class="ps-inbox-row unread"><span class="sender">Newsletter</span><span class="subject">Weekly Tech Digest #440</span><span class="time">08:45 AM</span></div>
-                  <div class="ps-inbox-row unread"><span class="sender">Billing Dept</span><span class="subject">Invoice overdue #9920</span><span class="time">Yesterday</span></div>
-                  <div class="ps-inbox-row"><span class="sender">Team Member</span><span class="subject">Meeting notes for Tuesday</span><span class="time">Oct 20</span></div>
-                  <p class="ps-note">340+ Unread messages. No priority labels. High risk of missed client requests.</p>
-                </div>
-              </div>
-              <!-- AFTER -->
-              <div class="project-card__panel project-card__panel--after">
-                <div class="project-card__panel-title"><span class="icon green">✓</span> AFTER: Categorized SaaS Dashboard</div>
-                <div class="project-card__panel-body">
-                  <div class="ps-kpi-row">
-                    <div class="ps-kpi"><span>Total</span><b>342</b></div>
-                    <div class="ps-kpi"><span>Action</span><b>14</b></div>
-                    <div class="ps-kpi"><span>Priority</span><b>P1 (3)</b></div>
-                    <div class="ps-kpi"><span>Done</span><b>328</b></div>
-                  </div>
-                  <div class="ps-inbox-row border-blue">
-                    <span class="ps-tag p1">P1 - URGENT</span>
-                    <span class="sender">Acme Client</span>
-                    <span class="subject">Contract Question</span>
-                    <span class="status">Drafted</span>
-                  </div>
-                  <div class="ps-template-box">
-                    <strong>Quick Reply Template:</strong>
-                    <p id="p1-rep">"Hi Acme Team, I have received your request regarding Section 4 and routed it to management for immediate review."</p>
-                    <button class="btn btn-sm btn-primary" onclick="copyText('p1-rep', 'fb-1')">Copy Template</button>
-                    <span id="fb-1" class="copy-fb"></span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Efficiency Analysis -->
-            <div class="project-metrics">
-              <h4>Illustrative Efficiency Analysis</h4>
-              <table class="project-metrics__table">
-                <thead><tr><th>Metric</th><th>Baseline</th><th>Improved</th><th>Difference / Reduction</th></tr></thead>
-                <tbody>
-                  <tr><td>Daily Processing Time</td><td>3.0 hours / day</td><td>0.75 hours / day</td><td><strong>2.25 hours saved / day (75.0%)</strong></td></tr>
-                  <tr><td>Estimated Weekly Labor Value</td><td>$300 / week ($20/hr)</td><td>$75 / week ($20/hr)</td><td><strong>$225 saved / week (75.0%)</strong></td></tr>
-                </tbody>
-              </table>
-              <p class="project-metrics__note">*Illustrative scenario — not measured client results. Assumptions: 50 emails/day, manual sorting vs. categorized triage at $20/hr labor rate.</p>
-            </div>
-          </article>
-
-          <!-- PROJECT 2: CALENDAR & TRAVEL COORDINATION -->
-          <article class="project-card project-card--theme-2">
-            <div class="project-card__header">
-              <span class="project-card__badge">PROJECT 2 • PRODUCTIVITY</span>
-              <h3 class="project-card__title">Calendar & Travel Coordination</h3>
-              <p class="project-card__desc">Consolidating fragmented meeting requests and scattered flight/lodging confirmations into a clear 3-day executive itinerary.</p>
-            </div>
-            <div class="project-card__compare">
-              <!-- BEFORE -->
-              <div class="project-card__panel project-card__panel--before">
-                <div class="project-card__panel-title"><span class="icon red">✕</span> BEFORE: Fragmented Schedule</div>
-                <div class="project-card__panel-body">
-                  <ul class="ps-list">
-                    <li>Email 1: Flight confirmation PDF (UA104, 08:30 AM).</li>
-                    <li>Email 2: Conflicting meeting request at landing time 11:30 AM.</li>
-                    <li>Slack: Hotel confirmation code in unorganized chat history.</li>
-                    <li>Calendar: Missing meeting buffer times and time-zone notes.</li>
-                  </ul>
-                  <p class="ps-note">High scheduling conflict risk and scattered trip documentation.</p>
-                </div>
-              </div>
-              <!-- AFTER -->
-              <div class="project-card__panel project-card__panel--after">
-                <div class="project-card__panel-title"><span class="icon green">✓</span> AFTER: Polished Calendar Dashboard</div>
-                <div class="project-card__panel-body">
-                  <div class="ps-itin-card">
-                    <div class="itin-time">08:30 AM EST</div>
-                    <div class="itin-det">Departure Flight UA104 (NYC to SF)</div>
-                  </div>
-                  <div class="ps-itin-card">
-                    <div class="itin-time">11:45 AM PST</div>
-                    <div class="itin-det">SFO Arrival & Airport Transfer to Hotel</div>
-                  </div>
-                  <div class="ps-itin-card">
-                    <div class="itin-time">02:00 PM PST</div>
-                    <div class="itin-det">Check-in: Grand Hyatt SF (Conf #GH-9921)</div>
-                  </div>
-                  <div class="ps-itin-card">
-                    <div class="itin-time">04:00 PM PST</div>
-                    <div class="itin-det">Rescheduled Partner Briefing (Buffer Included)</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Efficiency Analysis -->
-            <div class="project-metrics">
-              <h4>Illustrative Efficiency Analysis</h4>
-              <table class="project-metrics__table">
-                <thead><tr><th>Metric</th><th>Baseline</th><th>Improved</th><th>Difference / Reduction</th></tr></thead>
-                <tbody>
-                  <tr><td>Trip Logistics Coordination</td><td>8.0 hours / trip</td><td>2.5 hours / trip</td><td><strong>5.5 hours saved / trip (68.8%)</strong></td></tr>
-                  <tr><td>Estimated Labor Cost per Trip</td><td>$160 / trip ($20/hr)</td><td>$50 / trip ($20/hr)</td><td><strong>$110 saved / trip (68.8%)</strong></td></tr>
-                </tbody>
-              </table>
-              <p class="project-metrics__note">*Illustrative scenario — not measured client results. Assumptions: 1 multi-city trip per month, manual flight comparison vs. structured itinerary deck.</p>
-            </div>
-          </article>
-
-          <!-- PROJECT 3: DATA ENTRY, SPREADSHEET & REPORTING -->
-          <article class="project-card project-card--theme-3">
-            <div class="project-card__header">
-              <span class="project-card__badge">PROJECT 3 • DATA & REPORTING</span>
-              <h3 class="project-card__title">Data Entry, Spreadsheet & Reporting</h3>
-              <p class="project-card__desc">Cleaning unformatted expense logs, establishing audit flags, and creating an interactive CSV export module.</p>
-            </div>
-            <div class="project-card__compare">
-              <!-- BEFORE -->
-              <div class="project-card__panel project-card__panel--before">
-                <div class="project-card__panel-title"><span class="icon red">✕</span> BEFORE: Unformatted Records</div>
-                <div class="project-card__panel-body">
-                  <div class="ps-raw">
-                    "10/12/26 google wrkspace 150usd paid"<br>
-                    "10/14 fedex freight $84.5 unconfirmed"<br>
-                    "hyatt hotel 450"<br>
-                    "zapier inc - 49$"
-                  </div>
-                  <p class="ps-note">Inconsistent date formats, missing vendor categories, and no audit trail.</p>
-                </div>
-              </div>
-              <!-- AFTER -->
-              <div class="project-card__panel project-card__panel--after">
-                <div class="project-card__panel-title"><span class="icon green">✓</span> AFTER: Validated Reporting Dashboard</div>
-                <div class="project-card__panel-body">
-                  <div class="table-responsive-box">
-                    <table class="data-preview-table">
-                      <thead><tr><th>ID</th><th>Category</th><th>Vendor</th><th>Amount</th><th>Audit</th></tr></thead>
-                      <tbody>
-                        <tr><td>REC-101</td><td>SaaS</td><td>Google Workspace</td><td>$150.00</td><td><span class="ps-badge green">Verified</span></td></tr>
-                        <tr><td>REC-102</td><td>Freight</td><td>FedEx Freight</td><td>$84.50</td><td><span class="ps-badge green">Verified</span></td></tr>
-                        <tr><td>REC-103</td><td>Travel</td><td>Hyatt Hotels</td><td>$450.00</td><td><span class="ps-badge yellow">Pending</span></td></tr>
-                        <tr><td>REC-104</td><td>SaaS</td><td>Zapier Inc</td><td>$49.00</td><td><span class="ps-badge green">Verified</span></td></tr>
-                      </tbody>
-                    </table>
-                  </div>
-                  <button class="btn btn-sm btn-primary" onclick="downloadSampleCSV()" style="margin-top: 0.8rem;">Download Sample CSV</button>
-                </div>
-              </div>
-            </div>
-            <!-- Efficiency Analysis -->
-            <div class="project-metrics">
-              <h4>Illustrative Efficiency Analysis</h4>
-              <table class="project-metrics__table">
-                <thead><tr><th>Metric</th><th>Baseline</th><th>Improved</th><th>Difference / Reduction</th></tr></thead>
-                <tbody>
-                  <tr><td>Monthly Expense Audit & Reporting</td><td>12.0 hours / month</td><td>3.0 hours / month</td><td><strong>9.0 hours saved / month (75.0%)</strong></td></tr>
-                  <tr><td>Estimated Monthly Labor Value</td><td>$240 / month ($20/hr)</td><td>$60 / month ($20/hr)</td><td><strong>$180 saved / month (75.0%)</strong></td></tr>
-                </tbody>
-              </table>
-              <p class="project-metrics__note">*Illustrative scenario — not measured client results. Assumptions: 100 receipt records/month, manual copy-pasting vs. standardized template validation.</p>
-            </div>
-          </article>
-
-          <!-- PROJECT 4: WEB RESEARCH & COMPETITOR ANALYSIS -->
-          <article class="project-card project-card--theme-4">
-            <div class="project-card__header">
-              <span class="project-card__badge">PROJECT 4 • RESEARCH</span>
-              <h3 class="project-card__title">Web Research & Competitor Analysis</h3>
-              <p class="project-card__desc">Synthesizing scattered competitor research notes into a structured comparison matrix and executive summary brief.</p>
-            </div>
-            <div class="project-card__compare">
-              <!-- BEFORE -->
-              <div class="project-card__panel project-card__panel--before">
-                <div class="project-card__panel-title"><span class="icon red">✕</span> BEFORE: Unstructured Notes</div>
-                <div class="project-card__panel-body">
-                  <div class="ps-raw">
-                    "Hubspot seems expensive $50 user. Zoho is $20 user but UI is tricky. Salesforce is $75 user needs admin. Found on Reddit and official sites..."
-                  </div>
-                  <p class="ps-note">No clear side-by-side evaluation matrix or decision criteria.</p>
-                </div>
-              </div>
-              <!-- AFTER -->
-              <div class="project-card__panel project-card__panel--after">
-                <div class="project-card__panel-title"><span class="icon green">✓</span> AFTER: Executive Research Brief Matrix</div>
-                <div class="project-card__panel-body">
-                  <div class="table-responsive-box">
-                    <table class="data-preview-table">
-                      <thead><tr><th>Platform</th><th>Monthly Cost</th><th>Ease</th><th>Key Risk</th></tr></thead>
-                      <tbody>
-                        <tr><td><strong>HubSpot</strong></td><td>$50 / user</td><td>High</td><td>Cost scaling</td></tr>
-                        <tr><td><strong>Zoho CRM</strong></td><td>$20 / user</td><td>Medium</td><td>Setup complexity</td></tr>
-                        <tr><td><strong>Salesforce</strong></td><td>$75 / user</td><td>Advanced</td><td>Requires Admin</td></tr>
-                      </tbody>
-                    </table>
-                  </div>
-                  <div class="ps-template-box" style="margin-top: 0.8rem;">
-                    <strong>Executive Brief:</strong>
-                    <p id="res-brief">"HubSpot ($50/user) provides fast team onboarding, whereas Zoho CRM ($20/user) offers maximum budget efficiency for standard requirements."</p>
-                    <button class="btn btn-sm btn-primary" onclick="copyText('res-brief', 'fb-4')">Copy Executive Brief</button>
-                    <span id="fb-4" class="copy-fb"></span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Efficiency Analysis -->
-            <div class="project-metrics">
-              <h4>Illustrative Efficiency Analysis</h4>
-              <table class="project-metrics__table">
-                <thead><tr><th>Metric</th><th>Baseline</th><th>Improved</th><th>Difference / Reduction</th></tr></thead>
-                <tbody>
-                  <tr><td>Research & Brief Compilation</td><td>10.0 hours / report</td><td>3.5 hours / report</td><td><strong>6.5 hours saved / report (65.0%)</strong></td></tr>
-                  <tr><td>Estimated Report Labor Cost</td><td>$200 / report ($20/hr)</td><td>$70 / report ($20/hr)</td><td><strong>$130 saved / report (65.0%)</strong></td></tr>
-                </tbody>
-              </table>
-              <p class="project-metrics__note">*Illustrative scenario — not measured client results. Assumptions: 5 software platforms analyzed across 10 public sources.</p>
-            </div>
-          </article>
-
-          <!-- PROJECT 5: TASK & PROJECT MANAGEMENT -->
-          <article class="project-card project-card--theme-5">
-            <div class="project-card__header">
-              <span class="project-card__badge">PROJECT 5 • OPERATIONS</span>
-              <h3 class="project-card__title">Task & Project Management</h3>
-              <p class="project-card__desc">Organizing unassigned meeting notes and team chatter into a structured Kanban board with clear priorities and due dates.</p>
-            </div>
-            <div class="project-card__compare">
-              <!-- BEFORE -->
-              <div class="project-card__panel project-card__panel--before">
-                <div class="project-card__panel-title"><span class="icon red">✕</span> BEFORE: Unassigned Action Items</div>
-                <div class="project-card__panel-body">
-                  <div class="ps-raw">
-                    "Someone needs to check vendor invoices. Also update the onboarding doc when possible. Who is handling the flight approvals?"
-                  </div>
-                  <p class="ps-note">Unclear task ownership, missing deadlines, and zero visibility into status.</p>
-                </div>
-              </div>
-              <!-- AFTER -->
-              <div class="project-card__panel project-card__panel--after">
-                <div class="project-card__panel-title"><span class="icon green">✓</span> AFTER: Structured Kanban Board</div>
-                <div class="project-card__panel-body">
-                  <div class="kanban-preview-grid">
-                    <div class="kanban-mini-col">
-                      <div class="col-head">To Do</div>
-                      <div class="kanban-card-item">Audit Q4 Invoices<br><small class="tag-p1">High • Due Oct 28</small></div>
-                    </div>
-                    <div class="kanban-mini-col">
-                      <div class="col-head">In Progress</div>
-                      <div class="kanban-card-item">Update Onboarding SOP<br><small class="tag-p2">Medium • Due Oct 30</small></div>
-                    </div>
-                    <div class="kanban-mini-col">
-                      <div class="col-head">Completed</div>
-                      <div class="kanban-card-item">Flight Approvals<br><small class="ps-badge green">Done</small></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Efficiency Analysis -->
-            <div class="project-metrics">
-              <h4>Illustrative Efficiency Analysis</h4>
-              <table class="project-metrics__table">
-                <thead><tr><th>Metric</th><th>Baseline</th><th>Improved</th><th>Difference / Reduction</th></tr></thead>
-                <tbody>
-                  <tr><td>Weekly Task Tracking & Follow-up</td><td>6.0 hours / week</td><td>1.5 hours / week</td><td><strong>4.5 hours saved / week (75.0%)</strong></td></tr>
-                  <tr><td>Estimated Weekly Labor Value</td><td>$120 / week ($20/hr)</td><td>$30 / week ($20/hr)</td><td><strong>$90 saved / week (75.0%)</strong></td></tr>
-                </tbody>
-              </table>
-              <p class="project-metrics__note">*Illustrative scenario — not measured client results. Assumptions: 20 team action items/week tracked in Trello/Asana.</p>
-            </div>
-          </article>
-
-          <!-- PROJECT 6: SOP & OPERATIONS DOCUMENTATION -->
-          <article class="project-card project-card--theme-6">
-            <div class="project-card__header">
-              <span class="project-card__badge">PROJECT 6 • DOCUMENTATION</span>
-              <h3 class="project-card__title">SOP & Operations Documentation</h3>
-              <p class="project-card__desc">Converting informal verbal instructions into a standardized, version-controlled Standard Operating Procedure (SOP).</p>
-            </div>
-            <div class="project-card__compare">
-              <!-- BEFORE -->
-              <div class="project-card__panel project-card__panel--before">
-                <div class="project-card__panel-title"><span class="icon red">✕</span> BEFORE: Fragmented Procedural Notes</div>
-                <div class="project-card__panel-body">
-                  <div class="ps-raw">
-                    "Just check the travel dates, compare flights, book the Hyatt if under $200, and put the receipt in the drive folder somewhere."
-                  </div>
-                  <p class="ps-note">Inconsistent execution between team members due to lack of documented rules.</p>
-                </div>
-              </div>
-              <!-- AFTER -->
-              <div class="project-card__panel project-card__panel--after">
-                <div class="project-card__panel-title"><span class="icon green">✓</span> AFTER: Standardized Operating Procedure (SOP-OPS-004)</div>
-                <div class="project-card__panel-body">
-                  <div class="sop-doc-preview">
-                    <strong>SOP-OPS-004: Executive Travel Logistics Protocol (v1.2)</strong>
-                    <p><strong>1. Purpose:</strong> Establish cost-effective, uniform flight and lodging booking routines.</p>
-                    <p><strong>2. Execution Steps:</strong></p>
-                    <ol style="padding-left: 1rem; margin-top: 0.3rem;">
-                      <li>Extract dates & constraints from calendar request.</li>
-                      <li>Compare 3 flight options prioritizing < 2 hr layovers.</li>
-                      <li>Verify hotel distance is < 5 miles from venue.</li>
-                    </ol>
-                  </div>
-                  <button class="btn btn-sm btn-primary" onclick="window.print()" style="margin-top: 0.8rem;">Print / Save SOP PDF</button>
-                </div>
-              </div>
-            </div>
-            <!-- Efficiency Analysis -->
-            <div class="project-metrics">
-              <h4>Illustrative Efficiency Analysis</h4>
-              <table class="project-metrics__table">
-                <thead><tr><th>Metric</th><th>Baseline</th><th>Improved</th><th>Difference / Reduction</th></tr></thead>
-                <tbody>
-                  <tr><td>Onboarding & Routine Execution Time</td><td>5.0 hours / process</td><td>1.5 hours / process</td><td><strong>3.5 hours saved / process (70.0%)</strong></td></tr>
-                  <tr><td>Estimated Labor Cost per Process</td><td>$100 / process ($20/hr)</td><td>$30 / process ($20/hr)</td><td><strong>$70 saved / process (70.0%)</strong></td></tr>
-                </tbody>
-              </table>
-              <p class="project-metrics__note">*Illustrative scenario — not measured client results. Assumptions: Standardized SOP utilized for recurring monthly onboarding routines.</p>
-            </div>
-          </article>
-
-          <!-- PROJECT 7: OPERATIONS & DATA QUALITY -->
-          <article class="project-card project-card--theme-7">
-            <div class="project-card__header">
-              <span class="project-card__badge">PROJECT 7 • OPERATIONS & QUALITY</span>
-              <h3 class="project-card__title">Operations & Data Quality Workflow</h3>
-              <p class="project-card__desc">Establishing a structured quality control log and abnormality follow-up workflow for operational record-keeping.</p>
-            </div>
-            <div class="project-card__compare">
-              <!-- BEFORE -->
-              <div class="project-card__panel project-card__panel--before">
-                <div class="project-card__panel-title"><span class="icon red">✕</span> BEFORE: Unchecked Operational Log</div>
-                <div class="project-card__panel-body">
-                  <div class="ps-raw">
-                    "Batch #9921 tested. Temp was high on run 2. Someone should check the calibration log when they get a chance."
-                  </div>
-                  <p class="ps-note">Untracked operational exceptions and delayed follow-ups between shifts.</p>
-                </div>
-              </div>
-              <!-- AFTER -->
-              <div class="project-card__panel project-card__panel--after">
-                <div class="project-card__panel-title"><span class="icon green">✓</span> AFTER: Quality Control & Exception Register</div>
-                <div class="project-card__panel-body">
-                  <div class="table-responsive-box">
-                    <table class="data-preview-table">
-                      <thead><tr><th>Batch ID</th><th>Parameter</th><th>Variance</th><th>Status</th><th>Action Taken</th></tr></thead>
-                      <tbody>
-                        <tr><td>#9921</td><td>Temperature</td><td>+3.2°C</td><td><span class="tag-p1">FLAGGED</span></td><td>Calibrated & Re-tested</td></tr>
-                        <tr><td>#9922</td><td>Viscosity</td><td>Nominal</td><td><span class="ps-badge green">PASSED</span></td><td>Logged to Drive</td></tr>
-                      </tbody>
-                    </table>
-                  </div>
-                  <p class="ps-note" style="margin-top: 0.5rem;">Standardized abnormality tracking with mandatory sign-off logs.</p>
-                </div>
-              </div>
-            </div>
-            <!-- Efficiency Analysis -->
-            <div class="project-metrics">
-              <h4>Illustrative Efficiency Analysis</h4>
-              <table class="project-metrics__table">
-                <thead><tr><th>Metric</th><th>Baseline</th><th>Improved</th><th>Difference / Reduction</th></tr></thead>
-                <tbody>
-                  <tr><td>Quality Logging & Exception Review</td><td>7.0 hours / week</td><td>2.0 hours / week</td><td><strong>5.0 hours saved / week (71.4%)</strong></td></tr>
-                  <tr><td>Estimated Weekly Labor Value</td><td>$140 / week ($20/hr)</td><td>$40 / week ($20/hr)</td><td><strong>$100 saved / week (71.4%)</strong></td></tr>
-                </tbody>
-              </table>
-              <p class="project-metrics__note">*Illustrative scenario — not measured client results. Assumptions: 30 daily operational records reviewed across shift handovers.</p>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- TRUST & QUALITY -->
-    <section class="section-padding section-light">
-      <div class="container">
-        <div class="section-header text-center">
-          <span class="section-subtitle">WORK ETHICS & PROTOCOLS</span>
-          <h2 class="section-title">Trust, Quality & Confidentiality</h2>
-          <div class="section-divider"></div>
-        </div>
-
-        <div class="trust-grid">
-          <div class="trust-card surface-card">
-            <div class="trust-icon">
-              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#0284C7" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-            </div>
-            <h4>Data Security & Confidentiality</h4>
-            <p>Strict protocol regarding client credentials, password managers (1Password/LastPass), and non-disclosure obligations.</p>
-          </div>
-
-          <div class="trust-card surface-card">
-            <div class="trust-icon">
-              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#0284C7" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-            </div>
-            <h4>Human Review & Quality Control</h4>
-            <p>AI accelerates drafting and analysis, but every single outbound email and report is reviewed and verified by me before delivery.</p>
-          </div>
-
-          <div class="trust-card surface-card">
-            <div class="trust-icon">
-              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#0284C7" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
-            </div>
-            <h4>Clear & Consistent Communication</h4>
-            <p>Daily activity summaries, transparent task updates, and proactive follow-ups so you always know status.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ SECTION (UPDATED) -->
-    <section id="faq" class="section-padding section-navy">
-      <div class="container">
-        <div class="section-header text-center">
-          <span class="section-subtitle">QUESTIONS & ANSWERS</span>
-          <h2 class="section-title">Frequently Asked Questions</h2>
-          <div class="section-divider"></div>
-        </div>
-
-        <div class="faq-accordion">
-          <div class="faq-item glass-card">
-            <button class="faq-question">
-              <span>What operational tasks can you support?</span>
-              <span class="faq-toggle">+</span>
-            </button>
-            <div class="faq-answer">
-              <p>I can support day-to-day operations through accurate data entry, spreadsheet updates, record keeping, report preparation, document organization, email follow-ups, and coordination between teams. My background includes operational and quality data management, reporting, and following established procedures.</p>
-            </div>
-          </div>
-
-          <div class="faq-item glass-card">
-            <button class="faq-question">
-              <span>How do you maintain accuracy and meet deadlines?</span>
-              <span class="faq-toggle">+</span>
-            </button>
-            <div class="faq-answer">
-              <p>I follow established procedures, check records against source information, keep documentation organized, track pending tasks, and communicate promptly when clarification or follow-up is needed. I focus on accuracy, consistency, and completing work according to agreed priorities and deadlines.</p>
-            </div>
-          </div>
-
-          <div class="faq-item glass-card">
-            <button class="faq-question">
-              <span>Can you adapt to our existing tools and workflows?</span>
-              <span class="faq-toggle">+</span>
-            </button>
-            <div class="faq-answer">
-              <p>Yes. I can work with the tools already listed in my portfolio and adapt to a client's established processes. I am comfortable using spreadsheets, email, documentation, and task-tracking tools where appropriate, and I am willing to learn additional tools required for the role.</p>
-            </div>
-          </div>
-
-          <div class="faq-item glass-card">
-            <button class="faq-question">
-              <span>Can you work with clients in different time zones?</span>
-              <span class="faq-toggle">+</span>
-            </button>
-            <div class="faq-answer">
-              <p>I am based in Indonesia, in the Western Indonesia Time zone (WIB, UTC+7). I can coordinate with clients in different time zones, agree on suitable meeting times, and organize tasks around mutually agreed deadlines and working-hour overlap. Specific working hours can be discussed based on the client's requirements.</p>
-            </div>
-          </div>
-
-          <div class="faq-item glass-card">
-            <button class="faq-question">
-              <span>How do you use AI tools to support operations?</span>
-              <span class="faq-toggle">+</span>
-            </button>
-            <div class="faq-answer">
-              <p>I can use AI tools such as ChatGPT to support tasks such as drafting emails, summarizing information, organizing ideas, preparing initial documentation, and improving productivity. I review AI-generated outputs for accuracy, use human judgment before taking action, and handle confidential client information responsibly. AI supports my work; it does not replace verification or client-specific procedures.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT SECTION -->
-    <section id="contact" class="section-padding section-light">
-      <div class="container">
-        <div class="section-header text-center">
-          <span class="section-subtitle">GET IN TOUCH</span>
-          <h2 class="section-title">Let's Streamline Your Operations</h2>
-          <p class="section-description">Available for international remote contracts, virtual assistant roles, and ongoing operations support.</p>
-          <div class="section-divider"></div>
-        </div>
-
-        <div class="contact-wrapper">
-          <div class="contact-info-cards">
-            <div class="contact-card surface-card">
-              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#0284C7" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-              <h4>WhatsApp / Direct</h4>
-              <p><a href="https://wa.me/6282118055905" target="_blank" rel="noopener">+6282118055905</a></p>
-            </div>
-
-            <div class="contact-card surface-card">
-              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#0284C7" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-              <h4>Email Address</h4>
-              <p><a href="mailto:sangsubkhan@gmail.com">sangsubkhan@gmail.com</a></p>
-            </div>
-
-            <div class="contact-card surface-card">
-              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#0284C7" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-              <h4>LinkedIn Profile</h4>
-              <p><a href="https://linkedin.com/in/subkhan-maulana" target="_blank" rel="noopener">linkedin.com/in/subkhan-maulana</a></p>
-            </div>
-          </div>
-
-          <form class="contact-form surface-card" id="contact-form">
-            <h3>Service Inquiry</h3>
-            <div class="form-group">
-              <label for="contact-name">Your Name</label>
-              <input type="text" id="contact-name" required placeholder="e.g. Sarah Jenkins">
-            </div>
-            <div class="form-group">
-              <label for="contact-email">Your Email</label>
-              <input type="email" id="contact-email" required placeholder="e.g. sarah@company.com">
-            </div>
-            <div class="form-group">
-              <label for="service-needed">Service Needed</label>
-              <select id="service-needed" class="form-select">
-                <option value="Email & Inbox Management">Email & Inbox Management</option>
-                <option value="Calendar & Travel Coordination">Calendar & Travel Coordination</option>
-                <option value="Data Entry & Reporting">Data Entry, Spreadsheets & Reporting</option>
-                <option value="Web Research & Audits">Web Research & Competitor Audits</option>
-                <option value="Task & Project Coordination">Task & Project Management</option>
-                <option value="SOP & Process Documentation">SOP & Process Documentation</option>
-                <option value="General Virtual Support">General Virtual Support</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="contact-message">How can I support your operations?</label>
-              <textarea id="contact-message" rows="4" required placeholder="Describe your operational needs or job scope..."></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary btn-block">Send Inquiry via Email &rarr;</button>
-            <div id="form-feedback" class="form-feedback"></div>
-          </form>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <a href="#home" class="floating-home-btn" id="floating-home" title="Back to Top" aria-label="Back to Top">
-    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
-  </a>
-
-  <footer class="footer">
-    <div class="container text-center">
-      <p>&copy; 2026 Subkhan Maulana. All rights reserved. Operations Assistant & Virtual Support.</p>
-    </div>
-  </footer>
-
-  <script src="scripts.js"></script>
-</body>
-</html>
+@media (max-width: 320px) {
+  .hero-title { font-size: 1.5rem; }
+  .eyebrow-badge { font-size: 0.68rem; padding: 0.3rem 0.6rem; }
+  .float-card { display: none; } /* Sembunyikan lencana melayang pada layar sangat kecil agar tidak menghalangi foto */
+  .btn { padding: 0.6rem 1rem; font-size: 0.88rem; }
+}
